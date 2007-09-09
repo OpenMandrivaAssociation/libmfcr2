@@ -15,7 +15,7 @@ BuildRequires:	zaptel-devel
 BuildRequires:	autoconf2.5
 BuildRequires:	automake1.7
 BuildRequires:	libtool
-BuildRequires:	libspandsp-devel
+BuildRequires:	spandsp-devel
 BuildRequires:	libsupertone-devel
 BuildRequires:	libunicall-devel
 BuildRequires:	tiff-devel >= 3.6.1-3mdk
