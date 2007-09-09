@@ -1,10 +1,11 @@
 %define	major _1
-%define libname	%mklibname mfcr2 %{major}
+%define libname %mklibname mfcr2 %{major}
+%define develname %mklibname mfcr2 -d
 
 Summary:	A library for MFC/R2 signaling on E1 lines
 Name:		libmfcr2
 Version:	0.0.3
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPL
 Group:		System/Libraries
 URL:		http://www.soft-switch.org/
@@ -33,14 +34,14 @@ Group:          System/Libraries
 %description -n	%{libname}
 libmfcr2 is a library for MFC/R2 signalling on E1s.
 
-%package -n	%{libname}-devel
+%package -n	%{develname}
 Summary:	Header files and libraries needed for development with libmfcr2
 Group:		Development/C
-Provides:	%{name}-devel lib%{name}-devel
-Obsoletes:	%{name}-devel lib%{name}-devel
 Requires:	%{libname} = %{version}
+Provides:	%{name}-devel = %{version}-%{release}
+Obsoletes:	%{mklibname mfcr2 _1 -d}
 
-%description -n	%{libname}-devel
+%description -n	%{develname}
 This package includes the header files and libraries needed for
 developing programs using libsupertone.
 
@@ -89,10 +90,8 @@ install -m0644 mfcr2.h %{buildroot}%{_includedir}/
 %doc AUTHORS COPYING ChangeLog NEWS README
 %{_libdir}/unicall/protocols/*.so
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %{_libdir}/unicall/protocols/*.a
 %{_libdir}/unicall/protocols/*.la
 %{_includedir}/*.h
-
-
