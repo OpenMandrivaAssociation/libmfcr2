@@ -22,6 +22,7 @@ BuildRequires:	tiff-devel >= 3.6.1-3mdk
 BuildRequires:	libxml2-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	file
+BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
 libmfcr2 is a library for MFC/R2 signalling on E1s.
