@@ -78,9 +78,13 @@ install -d %{buildroot}%{_includedir}
 install -m0644 libmfcr2.h %{buildroot}%{_includedir}/
 install -m0644 mfcr2.h %{buildroot}%{_includedir}/
 
+%if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
+%endif
 
+%if %mdkversion < 200900
 %postun -n %{libname} -p /sbin/ldconfig
+%endif
 
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
