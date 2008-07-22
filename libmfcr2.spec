@@ -5,7 +5,7 @@
 Summary:	A library for MFC/R2 signaling on E1 lines
 Name:		libmfcr2
 Version:	0.0.3
-Release:	%mkrel 4
+Release:	%mkrel 5
 License:	GPL
 Group:		System/Libraries
 URL:		http://www.soft-switch.org/
