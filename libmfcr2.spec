@@ -4,25 +4,23 @@
 
 Summary:	A library for MFC/R2 signaling on E1 lines
 Name:		libmfcr2
-Version:	0.0.3
-Release:	%mkrel 5
+Version:	0.0.6
+Release:	%mkrel 0.pre1.1
 License:	GPL
 Group:		System/Libraries
 URL:		http://www.soft-switch.org/
-Source0:	http://www.soft-switch.org/downloads/unicall/unicall-0.0.3pre8/libmfcr2-%{version}.tar.bz2
-Patch0:		libmfcr2-zaptel_header.diff
-BuildRequires:	zaptel-devel
+Source0:	http://www.soft-switch.org/downloads/unicall/libmfcr2-%{version}pre1.tgz
 BuildRequires:	autoconf2.5
 BuildRequires:	automake1.7
 BuildRequires:	libtool
 BuildRequires:	spandsp-devel
 BuildRequires:	libsupertone-devel
-BuildRequires:	libunicall-devel
+BuildRequires:	libunicall-devel >= 0.0.6
 BuildRequires:	tiff-devel >= 3.6.1-3mdk
 BuildRequires:	libxml2-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	file
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 libmfcr2 is a library for MFC/R2 signalling on E1s.
@@ -48,7 +46,6 @@ developing programs using libsupertone.
 %prep
 
 %setup -q -n %{name}-%{version}
-%patch0 -p0
 
 # strip away annoying ^M
 find . -type f|xargs file|grep 'CRLF'|cut -d: -f1|xargs perl -p -i -e 's/\r//'
@@ -69,7 +66,7 @@ libtoolize --copy --force; aclocal-1.7; autoconf; automake-1.7 --add-missing --c
 make CFLAGS="%{optflags} -fPIC"
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 install -d %{buildroot}%{_includedir}
 
@@ -87,7 +84,7 @@ install -m0644 mfcr2.h %{buildroot}%{_includedir}/
 %endif
 
 %clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files -n %{libname}
 %defattr(-,root,root)
