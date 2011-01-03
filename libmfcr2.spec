@@ -5,13 +5,13 @@
 Summary:	A library for MFC/R2 signaling on E1 lines
 Name:		libmfcr2
 Version:	0.0.6
-Release:	%mkrel 0.pre1.2
+Release:	%mkrel 0.pre1.3
 License:	GPL
 Group:		System/Libraries
 URL:		http://www.soft-switch.org/
 Source0:	http://www.soft-switch.org/downloads/unicall/libmfcr2-%{version}pre1.tgz
 BuildRequires:	autoconf2.5
-BuildRequires:	automake1.7
+BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	spandsp-devel
 BuildRequires:	libsupertone-devel
@@ -57,7 +57,7 @@ perl -pi -e "s|^protocoldir=.*|protocoldir=\"%{_libdir}/unicall/protocols\"|g" c
 %build
 export WANT_AUTOCONF_2_5=1
 rm -f configure
-libtoolize --copy --force; aclocal-1.7; autoconf; automake-1.7 --add-missing --copy
+libtoolize --copy --force; aclocal; autoconf; automake --add-missing --copy
 
 %configure2_5x \
     --enable-shared \
