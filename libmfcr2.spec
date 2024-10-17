@@ -8,7 +8,7 @@ Version:	0.0.6
 Release:	%mkrel 0.pre1.3
 License:	GPL
 Group:		System/Libraries
-URL:		http://www.soft-switch.org/
+URL:		https://www.soft-switch.org/
 Source0:	http://www.soft-switch.org/downloads/unicall/libmfcr2-%{version}pre1.tgz
 BuildRequires:	autoconf2.5
 BuildRequires:	automake
