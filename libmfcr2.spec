@@ -10,6 +10,8 @@ License:	GPL
 Group:		System/Libraries
 URL:		https://www.soft-switch.org/
 Source0:	http://www.soft-switch.org/downloads/unicall/libmfcr2-%{version}pre1.tgz
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires:	autoconf2.5
 BuildRequires:	automake
 BuildRequires:	libtool
